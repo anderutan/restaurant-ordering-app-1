@@ -1,0 +1,325 @@
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.heading {
+  height: 150px;
+  background-image: url(image/burger-background.jpg);
+  background-position: center;
+  color: white;
+  padding: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.heading::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(
+    169,
+    169,
+    169,
+    0.2
+  ); /* Adjust the alpha value for the desired level of transparency */
+  z-index: -1;
+}
+
+.heading h1 {
+  font-size: 2 rem;
+  padding-top: 10px;
+}
+
+.heading h1,
+.heading p {
+  margin: 0;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px #000;
+  z-index: 2;
+}
+
+.ordering-section {
+  padding: 20px;
+}
+
+.ordering-section,
+.menu-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item {
+  display: flex;
+  gap: 30px;
+  padding: 40px 0;
+  border-bottom: 2px solid lightgray;
+  align-items: center;
+  position: relative;
+}
+
+.menu-item img,
+.card-detail-title img {
+  width: 60px;
+  height: 60px;
+}
+
+.item-name,
+.total-price-tag {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.item-description {
+  font-size: 0.8rem;
+  padding: 3px 0 10px 0;
+}
+
+.item-price,
+.total-price,
+.order-item-price {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.add-btn {
+  padding: 12px;
+  background-color: white;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 2px 2px #999;
+}
+
+.add-btn:hover {
+  background-color: #d9932c;
+}
+
+.add-btn:active {
+  box-shadow: 1px 1px #5d5d5d;
+  transform: translateY(2px);
+}
+
+/* Hide it after payment */
+.customer-order-section {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+}
+
+.order-title {
+  text-align: center;
+  padding-bottom: 30px;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.order-item,
+.total-price-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.order-remove-btn {
+  background-color: white;
+  border: none;
+  font-size: 0.6rem;
+  color: lightgray;
+}
+
+.order-remove-btn:hover {
+  background-color: #d9932c;
+  color: white;
+  padding: 6px;
+}
+
+.order-remove-btn:active {
+  box-shadow: 1px 1px #5d5d5d;
+  transform: translate(2px, 2px);
+}
+
+.add-btn,
+.order-item .item-price,
+.total-price,
+.order-item-price {
+  position: absolute;
+  right: 10px;
+}
+
+.total-price-section {
+  padding: 10px 0;
+  border-top: 2px solid #000;
+}
+
+.total-price-tag {
+  font-style: italic;
+}
+
+.complete-order-btn,
+.pay-btn {
+  font-weight: 600;
+  padding: 15px;
+  background-color: #16db99;
+  color: white;
+  border: none;
+  margin-top: 30px;
+}
+
+.complete-order-btn:hover {
+  background-color: #0f9a6c;
+}
+
+.complete-order-btn:active {
+  transform: translate(1px, 1px);
+}
+
+/* Show thank you message after payment */
+.thank-you-message {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 30px 20px;
+  background-color: #ecfdf5;
+  color: #065f46;
+  font-weight: 600;
+}
+
+/* Popup card */
+.card-detail {
+  display: block;
+  position: fixed;
+  max-width: 400px;
+  height: 500px;
+  top: 10%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: white;
+  z-index: 99;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.7);
+}
+
+.card-detail-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-detail-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.form-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.card-detail-form input {
+  padding: 15px;
+  color: #999;
+}
+
+/* Remove the increase and decrease button */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* rating css */
+.rating-card {
+  max-width: 15rem;
+  background: #fff;
+  margin: 0 1rem;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.rating-card p {
+  margin-bottom: -10px;
+}
+
+.output {
+  font-size: 0.8rem;
+  padding: 10px 0;
+}
+
+.star {
+  font-size: 5vh;
+  cursor: pointer;
+}
+
+.one {
+  color: rgb(255, 0, 0);
+}
+
+.two {
+  color: rgb(255, 106, 0);
+}
+
+.three {
+  color: rgb(251, 255, 120);
+}
+
+.four {
+  color: rgb(255, 255, 0);
+}
+
+.five {
+  color: rgb(24, 159, 14);
+}
